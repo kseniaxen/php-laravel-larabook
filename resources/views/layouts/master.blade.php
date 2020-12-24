@@ -1,34 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf – 8">
-        <meta name="viewport" content="width=device –width, initial – scale=1.0">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Larabook</title>
-        <link href="{{asset('css/style.css')}}" rel="stylesheet">
-        <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
-        <link href="{{asset('css/bootstrap – theme.min.css')}}" rel="stylesheet">
-        <! – – Latest compiled and minified
-        JavaScript – – >
-        <script type="text/javascript" src="{{asset('js/bootstrap.min.js')}}"></script>
-        <script type="text/javascript" src="{{asset('js/jquery – 3.0.0.js')}}"></script>
-    </head><! – – /head – – >
-    <body>
-    @section('menu')
-        <div class="mainmenu1 col – sm – 12 col – md – 12 col – lg – 12">
-        <ul class="nav nav – pills nav –justified">
-            <li role="presentation" {{$page =='Main page' ? 'class=active' : ''}}>
-                <a href="{{url('index')}}">Main Page</a>
-            </li>
-            <li role="presentation" {{$page == 'Forms' ? 'class=active' : ''}}>
-                <a href="{{url('create')}}"> Content Control</a>
-            </li>
-        </ul>
+<head>
+    <meta charset="utf–8">
+    <meta name="viewport" content="width=device–width, initial–scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Larabook</title>
+    <link href="{{asset('css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('node_modules/bootstrap/dist/css/bootstrap.css')}}" rel="stylesheet">
+    <!–– Latest compiled and minified JavaScript ––>
+    <script type="text/javascript" src="{{asset('node_modules/bootstrap/dist/js/bootstrap.bundle.js')}}">
+    </script>
+</head>
+<!––/head ––>
+<body>
+@section('menu')
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Larabook</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbarNav" class="collapse navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item" role="presentation">
+                        <a class="{{$page == 'Main page' ? 'active' : ''}} nav-link" href="{{url('index')}}">Main Page</a></li>
+                    <li class="nav-item" role="presentation">
+                        <a class="{{$page == 'Forms' ? 'active' : ''}} nav-link" href="{{url('create')}}">Content Control</a></li>
+                </ul>
+            </div>
         </div>
-        @show
-        <div class="container col – sm – 12 col – md – 12 col – lg – 12">
-            @yield('content')
-        </div>
-    </body>
+    </nav>
+@show
+<div class="container col-sm-12 col-md–12 col-lg-12">
+    @yield('content')
+</div>
+</body>
 </html>
